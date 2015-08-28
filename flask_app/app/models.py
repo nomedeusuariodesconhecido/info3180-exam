@@ -1,4 +1,4 @@
-#from flask import Flask
+from flask import Flask
 from . import db
 
 class Emails(db.Model):
@@ -12,6 +12,9 @@ class Emails(db.Model):
 
     def __repr__(self):
         return '<Emails %r>' % self.name
-        
-#   def createDB(self):
-#       db.create_all()
+
+
+def createDB():
+    db.create_all()
+    
+    
