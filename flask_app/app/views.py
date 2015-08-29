@@ -6,8 +6,8 @@ Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 This file creates your application.
 """
 from flask import Flask
-from app import app
-from flask import render_template, request, redirect, url_for
+from app import app, models, db
+from flask import render_template, request, redirect, url_for, session
 
 
 ###
@@ -27,12 +27,16 @@ def about():
     
     
     
-#@app.route('/contactsForm')
-#def contactsForm():
-#    return render_template("contactsForm.html")
+@app.route('/renderForm')
+def contactsForm():
+    return render_template("ContactsForm.html")
     
-@app.route('/displayEmails', methods=["GET", "POST"])
+    
+@app.route('/displayEmails/<name>', methods=["GET", "POST"])
 def displayEmails():
+    if request.method =='GET':
+        emailaddress = db.session.query(Emails).filter(Emails.name==name)
+    
     
     
     

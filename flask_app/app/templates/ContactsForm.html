@@ -1,0 +1,20 @@
+{%extends"base.html"%}
+
+{% block js %}
+{% endblock %}
+
+{%block main%}
+
+    <div class="container">
+        <form method="get">
+            Name: <br />
+            <input type="text" name = "personName"><br />
+    
+            <input type="submit"/>
+        </form>
+    </div>
+
+{%endblock%}
+
+
+<!-- <form action="{{url_for('displayEmails/<name>')}}" method="post">

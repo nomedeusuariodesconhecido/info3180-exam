@@ -14,7 +14,3 @@ class Emails(db.Model):
         return '<Emails %r>' % self.name
 
 
-def createDB():
-    db.create_all()
-    
-    
