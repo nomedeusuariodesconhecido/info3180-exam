@@ -33,20 +33,15 @@ def contactsForm():
     
     
 @app.route('/displayEmails/<name>', methods=["GET", "POST"])
-def displayEmails():
+def displayEmails(name):
     if request.method =='GET':
         emailaddress = db.session.query(Emails).filter(Emails.name==name)
-    
-    
-    
-    
-    return render_template("contactsForm.html")
+    return emailaddress
 
 
 ###
 # The functions below should be applicable to all Flask apps.
 ###
-
 @app.route('/<file_name>.txt')
 def send_text_file(file_name):
     """Send your static text file."""
