@@ -1,0 +1,45 @@
+.lbl{
+    
+    font-family: "Century Gothic";
+    font-size: 20px;
+    color: #32CD32;
+}
+
+.field{
+    border-radius: 5px;
+    border: 1px solid #32CD32;
+    font-family: "Century Gothic";
+    font-size: 16px;
+    height: 38px;
+    color: grey;
+    padding: 0px 10px 0px 10px;
+}
+
+
+.footer{
+    
+    margin-top: 100px;
+    color: white;
+    font-size: 20px;
+    background-color: #32CD32;
+    font-family: "Century Gothic";
+}
+
+.header{
+    
+    width: 100%;
+    color: white;
+    font-size: 40px;
+    text-align: left;
+    background-color: #32CD32;
+    font-family: "Century Gothic";
+}
+
+
+.results{
+    
+    height: 200px;
+    width: 100%;
+    background-color:#00FFFF;
+    opacity: 0.3;
+}
