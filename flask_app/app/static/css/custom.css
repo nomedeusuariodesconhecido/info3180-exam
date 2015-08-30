@@ -48,7 +48,7 @@
     
     height: 200px;
     width: 100%;
-    background-color:#1E90FF;
+    background-color: #1E90FF;
     opacity: 0.3;
 }
 
@@ -56,6 +56,9 @@
     
     width: 200px;
     margin: 0px 150px 0px 150px;
+    /*background: #1E90FF;*/
+    /*border-radius: 0px;*/
+    /*border: none;*/
 }
 
 .word1{
@@ -67,4 +70,23 @@
 .well {
    background: white;
    border: none;
+}
+
+#email_address{
+    
+    font-family: "Century Gothic";
+    font-size: 68px;
+    line-height: 90px;
+    text-align: left;
+    color: #1E90FF;
+    
+    
+}
+
+#person_name{
+    
+    font-family: "Impact";
+    font-size: 18px;
+    text-align: right;
+    color: white;
 }

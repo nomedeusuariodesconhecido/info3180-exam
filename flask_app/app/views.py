@@ -35,7 +35,7 @@ def contactsForm():
 @app.route('/displayEmails/<name>', methods=["GET", "POST"])
 def displayEmails(name):
     if request.method =='GET':
-        emailaddress = db.session.query(Emails).filter(Emails.name==name)
+        emailaddress = db.session.query(Emails).filter(Emails.name==name) #emailaddress = Emails.query.filter_by(Emails.name==name)
     return emailaddress
 
 
