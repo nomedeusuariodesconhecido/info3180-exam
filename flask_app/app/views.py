@@ -32,7 +32,7 @@ def about():
 def displayEmails():
     #query_result = []
     if request.method =='POST':
-        srch_name = request.form['personName']
+        srch_name = request.form["personName"]
         query_result = db.session.query(Emails).filter(Emails.name==srch_name).first()
     else:
         print "Can't handle that request"
