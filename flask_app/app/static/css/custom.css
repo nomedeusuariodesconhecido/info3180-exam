@@ -105,5 +105,16 @@
     src: url('../fonts/FORTE.eot');
     font-weight: normal;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('../fonts/CenturyGothic.ttf'); 
+    src: url('../fonts/CenturyGothic.svg');
+    src: url('../fonts/CenturyGothic.woff');
+    src: url('../fonts/CenturyGothic.eot');
+    src: url('../fonts/CenturyGothic.otf');
+    font-weight: normal;
+    font-style: normal;
 
 }
