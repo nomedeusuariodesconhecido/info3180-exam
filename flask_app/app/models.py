@@ -15,3 +15,4 @@ class Emails(db.Model):
         return '<Emails %r>' % self.name
 
 
+
