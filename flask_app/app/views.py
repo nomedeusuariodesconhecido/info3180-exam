@@ -5,9 +5,11 @@ Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 
 This file creates your application.
 """
-from flask import Flask
 from app import app, models, db
-from flask import render_template, request, redirect, url_for, session
+from app.models import Emails
+from flask.ext.sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
+
 
 
 ###
@@ -17,7 +19,7 @@ from flask import render_template, request, redirect, url_for, session
 @app.route('/')
 def home():
     """Render website's home page."""
-    return render_template('home.html')
+    return render_template('ContactsForm.html')
 
 
 @app.route('/about/')
@@ -26,17 +28,44 @@ def about():
     return render_template('about.html')
     
     
+# @app.route('/renderForm/')
+# def renderForm():
+#     return render_template("ContactsForm.html")
     
-@app.route('/renderForm')
-def contactsForm():
-    return render_template("ContactsForm.html")
     
+@app.route('/displayEmails', methods=["GET", "POST"])
+def displayEmails():
+    #query_result = {}
+    if request.method =='POST':
+        name = request.form['personName']
+        query_result = Emails.query.filter(name==name).first_or_404 #db.session.query(Emails).filter(Emails.name==name).first_or_404()
+        # return query_result
+    else:
+        print "Can't handle that request"
+            
+    # for result in query_result:
+    #     #usr_id = result.id
+    #     usr_name = result.name
+    #     usr_email = result.email
     
-@app.route('/displayEmails/<name>', methods=["GET", "POST"])
-def displayEmails(name):
-    if request.method =='GET':
-        emailaddress = db.session.query(Emails).filter(Emails.name==name) #emailaddress = Emails.query.filter_by(Emails.name==name)
-    return emailaddress
+    return render_template('ContactsForm.html', query_result=query_result)
+
+
+# @app.route('/displayEmails/<name>', methods=["GET", "POST"])
+# def displayEmails(name):
+#     if request.method =='GET':
+#         #name = request.form['personName']
+#         query_result = Emails.query.filter_by(Emails.name==name).first_or_404()
+#         return query_result
+#     else:
+#         print "Can't handle that request"
+            
+#     for result in query_result:
+#         usr_id = result.id
+#         usr_name = result.name
+#         usr_email = result.email  
+        
+        
 
 
 ###

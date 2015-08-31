@@ -1,4 +1,5 @@
 from flask import Flask
+from sqlalchemy import Column, Integer, String
 from . import db
 
 class Emails(db.Model):
