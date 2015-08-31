@@ -10,18 +10,28 @@
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <form action="{{url_for('displayEmails')}}" method="POST">
+                    <form action="{{url_for('displayEmails')}}" method="GET">
                         <!--<div class="lbl">Name:</div> -->
                         <input class="field" type="text" name ="personName" size="60" placeholder="enter name" autofocus><br /><br />
-                        <button type="submit" class="btn btn-primary">SEARCH</button> <!-- <input class="btn-primary" type="submit"/> -->
+                        <button type="submit" class="btn btn-primary" value="personName">SEARCH</button> <!-- <input class="btn-primary" type="submit"/> -->
                     </form>
                 </div>
                 <div class="col-md-3"></div>
             </div>
         </div>
     </div>
-    
-    <!--<div class="well">-->
+
+    <div class="container results" id="resultsDIV">
+            <div id="email_address">{{ result.email }}</div>
+            <div id="person_name">{{ result.name }}</div>
+    </div>
+
+{%endblock%}
+
+
+<!-- <form action="{{url_for('displayEmails/<name>')}}" method="post">
+
+  <!--<div class="well">-->
     <!--    <div class="container">-->
     <!--        <div class="row">-->
     <!--            <div class="col-md-3"></div>-->
@@ -36,13 +46,3 @@
     <!--        </div>-->
     <!--    </div>-->
     <!--</div>-->
-    
-    <div class="container results" id="resultsDIV">
-        <div id="email_address">{{query_result.email}}</div>
-        <div id="person_name">{{query_result.name}}</div>
-    </div>
-
-{%endblock%}
-
-
-<!-- <form action="{{url_for('displayEmails/<name>')}}" method="post">

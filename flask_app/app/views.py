@@ -27,28 +27,17 @@ def about():
     """Render the website's about page."""
     return render_template('about.html')
     
-    
-# @app.route('/renderForm/')
-# def renderForm():
-#     return render_template("ContactsForm.html")
-    
-    
+
 @app.route('/displayEmails', methods=["GET", "POST"])
 def displayEmails():
-    #query_result = {}
-    if request.method =='POST':
+    #query_result = []
+    if request.method =='GET':
         name = request.form['personName']
-        query_result = Emails.query.filter(name==name).first_or_404 #db.session.query(Emails).filter(Emails.name==name).first_or_404()
-        # return query_result
+        query_result = db.session.query(Emails).filter(Emails.name==name).first()
     else:
         print "Can't handle that request"
             
-    # for result in query_result:
-    #     #usr_id = result.id
-    #     usr_name = result.name
-    #     usr_email = result.email
-    
-    return render_template('ContactsForm.html', query_result=query_result)
+    return render_template('ContactsForm.html', result=query_result)
 
 
 # @app.route('/displayEmails/<name>', methods=["GET", "POST"])
@@ -56,6 +45,7 @@ def displayEmails():
 #     if request.method =='GET':
 #         #name = request.form['personName']
 #         query_result = Emails.query.filter_by(Emails.name==name).first_or_404()
+#         query_result = db.session.query(Emails).filter(Emails.name==name).first_or_404()
 #         return query_result
 #     else:
 #         print "Can't handle that request"
@@ -66,6 +56,11 @@ def displayEmails():
 #         usr_email = result.email  
         
         
+    
+# @app.route('/renderForm/')
+# def renderForm():
+#     return render_template("ContactsForm.html")
+    
 
 
 ###
@@ -97,3 +92,6 @@ def page_not_found(error):
 
 if __name__ == '__main__':
     app.run(debug=True,host="0.0.0.0",port="8888")
+
+
+# res =query_result.decode('utf-8')
