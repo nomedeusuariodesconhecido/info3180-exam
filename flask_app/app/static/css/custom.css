@@ -63,7 +63,7 @@
 
 .word1{
     
-    font-family:forte;
+    font-family:FORTE;
     font-size: 80px;
 }
 
@@ -95,3 +95,15 @@
 /*    background-image: url("static/img/start.png");*/
 /*    background-repeat: no-repeat;*/
 /*}*/
+
+
+@font-face {
+    font-family: 'FORTE';
+    src: url('../fonts/FORTE.ttf'); 
+    src: url('../fonts/FORTE.svg');
+    src: url('../fonts/FORTE.woff');
+    src: url('../fonts/FORTE.eot');
+    font-weight: normal;
+    font-style: normal;
+
+}
