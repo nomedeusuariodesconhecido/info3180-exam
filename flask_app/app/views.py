@@ -31,7 +31,7 @@ def about():
 @app.route('/displayEmails', methods=["GET", "POST"])
 def displayEmails():
     #query_result = []
-    error = "NO SUCH PERSON"
+    error = "Sorry... No such person!"
     if request.method =='POST':
         srch_name = request.form["personName"]
         query_result = db.session.query(Emails).filter(Emails.name==srch_name).first()
