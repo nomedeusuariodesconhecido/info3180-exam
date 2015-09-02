@@ -31,16 +31,20 @@ def about():
 @app.route('/displayEmails', methods=["GET", "POST"])
 def displayEmails():
     #query_result = []
+    error = "NO SUCH PERSON"
     if request.method =='POST':
         srch_name = request.form["personName"]
         query_result = db.session.query(Emails).filter(Emails.name==srch_name).first()
     else:
-        print "Can't handle that request"
+        return render_template("404.html")
     
-    name = query_result.name
-    email = query_result.email
-            
-    return render_template('ContactsForm.html', usr_name=name, usr_email=email)
+    if query_result > 0:
+        name = query_result.name
+        email = query_result.email
+        return render_template('ContactsForm.html', usr_name=name, usr_email=email)
+    else:
+        return render_template('ContactsForm.html', error=error)
+
 
 
 # @app.route('/displayEmails/<name>', methods=["GET", "POST"])
