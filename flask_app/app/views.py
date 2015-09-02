@@ -33,15 +33,25 @@ def displayEmails():
     #query_result = []
     error = "Sorry... No such person!"
     if request.method =='POST':
-        srch_name = request.form["personName"]
-        query_result = db.session.query(Emails).filter(Emails.name==srch_name).first()
+        f_name = request.form["first_name"]
+        l_name = request.form["last_name"]
+        if f_name and l_name:
+            query_result = db.session.query(Emails).filter((Emails.frst_name==f_name) | (Emails.lst_name==l_name)).first()
+        elif f_name:
+            query_result = db.session.query(Emails).filter(Emails.frst_name==f_name).first()
+        elif l_name:
+            query_result = db.session.query(Emails).filter(Emails.lst_name==l_name).first()
+            
+        # query_result_f_name = db.session.query(Emails).filter(getattr(Emails, "frst_name").like("%" + f_name + "%")).first()
+        # query_result_l_name = db.session.query(Emails).filter(getattr(Emails, "lst_name").like("%" + l_name + "%")).first()
     else:
         return render_template("404.html")
     
     if query_result > 0:
-        name = query_result.name
+        f_name = query_result.frst_name
+        l_name = query_result.lst_name
         email = query_result.email
-        return render_template('ContactsForm.html', usr_name=name, usr_email=email)
+        return render_template('ContactsForm.html', firstname=f_name, lastname=l_name, usr_email=email)
     else:
         return render_template('ContactsForm.html', error=error)
 

@@ -8,12 +8,22 @@
 .field{
     border-radius: 5px;
     border: 1px solid #1E90FF;
-    font-family: "Century Gothic";
-    font-size: 16px;
+    font-family: "Century Gothic" !important;
+    padding: 0px 10px 0px 10px;
+    display: inline;
+    font-size: 16px !important;
     height: 38px;
     color: grey;
-    padding: 0px 10px 0px 10px;
-    margin: auto;
+}
+
+.input-group, .input-group-btn{
+    display: inline !important;
+}
+
+.form-control{
+    /*display: inline !important;*/
+    width: 330px !important;
+    /*font-family: "Century Gothic" !important;*/
 }
 
 
@@ -54,12 +64,17 @@
 
 .btn{
     
-    width: 200px;
-    margin: 0px 150px 0px 150px;
+    width: 100px;
+    display: inline-block;
+    height: 38px;
+    margin-top: -3px;
+    margin-left: -5px;
+    /*margin: 0px 140px 0px 150px;*/
     /*background: #1E90FF;*/
     /*border-radius: 0px;*/
     /*border: none;*/
 }
+
 
 .word1{
     
