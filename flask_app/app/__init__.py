@@ -1,5 +1,7 @@
 import os
 from flask import Flask
+import psycopg2
+import urlparse
 
 
 from flask import Flask
@@ -9,7 +11,20 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://swaby:620064203@localhost/Contacts'
 db = SQLAlchemy(app)
 
+
+# urlparse.uses_netloc.append("postgres")
+# url = urlparse.urlparse(os.environ["SQLALCHEMY_DATABASE_URI"])
+
+# conn = psycopg2.connect(
+#     database=url.path[1:],
+#     user=url.username,
+#     password=url.password,
+#     host=url.hostname,
+#     port=url.port
+# )
+
 from app import views, models
+
 
 
 
