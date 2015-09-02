@@ -35,11 +35,18 @@ def displayEmails():
     if request.method =='POST':
         f_name = request.form["first_name"]
         l_name = request.form["last_name"]
+        
         if f_name and l_name:
+            f_name = f_name[0].upper() + f_name[1:len(f_name)]
+            l_name = l_name[0].upper() + l_name[1:len(l_name)]
             query_result = db.session.query(Emails).filter((Emails.frst_name==f_name) | (Emails.lst_name==l_name)).first()
+            
         elif f_name:
+            f_name = f_name[0].upper() + f_name[1:len(f_name)]
             query_result = db.session.query(Emails).filter(Emails.frst_name==f_name).first()
+            
         elif l_name:
+            l_name = l_name[0].upper() + l_name[1:len(l_name)]            
             query_result = db.session.query(Emails).filter(Emails.lst_name==l_name).first()
             
         # query_result_f_name = db.session.query(Emails).filter(getattr(Emails, "frst_name").like("%" + f_name + "%")).first()
