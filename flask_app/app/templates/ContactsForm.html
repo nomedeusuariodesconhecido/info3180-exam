@@ -27,7 +27,8 @@
     <div class="container results" id="resultsDIV">
             <div id="email_address">{{ usr_email }}</div>
             <div id="person_name">{{ firstname }} {{ lastname }}</div>
-            <div id="email_address">{{ error }}</div>
+            <div class="message">{{ error }}</div>
+            <div class="message" style="color: red">{{ empty }}</div>
     </div>
 
 {%endblock%}
